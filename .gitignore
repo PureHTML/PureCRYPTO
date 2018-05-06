@@ -1,0 +1,6 @@
+/vendor/
+Makefile
+/nbproject/private/
+publicKey.txt
+privateKey.asc
+composer.lock

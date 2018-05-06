@@ -1,0 +1,18 @@
+all: 	clean reset
+
+clean:
+	rm -rv vendor/
+
+reset:
+	#delete/create testing keys
+	
+
+doc:
+	apigen generate --source src --destination docs --title "PureCRYPTO" --charset UTF-8 --access-levels public --access-levels protected --php --tree
+
+test:
+	phpunit tests
+
+#generate autoload (adding classes)
+autoload:
+	composer dumpautoload
