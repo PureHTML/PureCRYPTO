@@ -1,0 +1,2 @@
+# PureCRYPTO
+Encrypt private data
