@@ -9,6 +9,13 @@
 namespace PureCRYPTO;
 
 require_once 'vendor/autoload.php';
+
+$adminCryptor = new Admin\SslCrypto();
+$adminCryptor->setPassphrase('password');
+$adminCryptor->createKey();
+file_put_contents(__DIR__ . '/tests/privateKey.asc',$adminCryptor->getPrivateKey());
+file_put_contents(__DIR__ . '/tests/publicKey.asc', $adminCryptor->getPublicKey());
+
 $cryptor = new SslCrypto();
 $cryptor->setPassphrase('password');
 $cryptor->setPrivateKey(file_get_contents(__DIR__ . '/tests/privateKey.asc'));

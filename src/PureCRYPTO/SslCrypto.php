@@ -52,12 +52,17 @@ class SslCrypto extends Crypto implements PureCryptor {
    * Encrypt string with customers and admins key
    *
    * @param string $plaintext plaintext
+   * @throws Exception ssl encryption error
    * 
    * @return string base64 encoded ncrypted text
    */
   public function encrypt($plaintext) {
     $crypttext = '';
     openssl_public_encrypt($plaintext, $crypttext, $this->publicKey);
+    $err = openssl_error_string();
+        if (!empty($err)){
+      throw new \Exception($err);
+    }
     return base64_encode($crypttext);
   }
 
@@ -87,12 +92,17 @@ class SslCrypto extends Crypto implements PureCryptor {
    * decrypt
    * 
    * @param string $crypttext base 64 encoded crypttext
+   * @throws Exception ssl decryption error
    * 
-   * @return type
+   * @return string
    */
   public function decrypt($crypttext) {
     $privateKey = openssl_pkey_get_private($this->getPrivateKey(), $this->getPassphrase());
     openssl_private_decrypt(base64_decode($crypttext), $decrypted, $privateKey);
+    $err = openssl_error_string();
+    if (!empty($err)){
+      throw new \Exception($err);
+    }
     openssl_free_key($privateKey);
     return $decrypted;
   }

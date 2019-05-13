@@ -1,31 +1,32 @@
 {
-    "name": "purehtml/purecrypto",
-    "description": "Encrypt private data",
-    "type": "library",
-    "require": {
-        "php": ">=7"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^7.1"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Simon Formanek",
-            "email": "mail@simonformanek.cz"
-        }
-    ],
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "PureCRYPTO\\": "src/PureCRYPTO",
-            "PureCRYPTO\\admin\\": "src/PureCRYPTO/admin"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Test\\PureCRYPTO\\": "tests/src/PureCRYPTO",
-            "Test\\PureCRYPTO\\admin\\": "tests/src/PureCRYPTO/admin"
-        }
+  "name": "purehtml/purecrypto",
+  "description": "Encrypt private data",
+  "type": "library",
+  "require": {
+    "php": ">=7",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Simon Formanek",
+      "email": "mail@simonformanek.cz"
     }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "PureCRYPTO\\": "src/PureCRYPTO",
+      "PureCRYPTO\\Admin\\": "src/PureCRYPTO/Admin"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\PureCRYPTO\\": "tests/src/PureCRYPTO",
+      "Test\\PureCRYPTO\\admin\\": "tests/src/PureCRYPTO/admin"
+    }
+  }
 }
